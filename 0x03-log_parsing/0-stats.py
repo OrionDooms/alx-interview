@@ -3,6 +3,7 @@
    The signal module handle keyboard interruptions."""
 import signal
 import sys
+import re
 
 
 def display_status(total_size, status_codes):
