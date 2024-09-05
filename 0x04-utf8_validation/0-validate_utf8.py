@@ -20,18 +20,18 @@ def validUTF8(data):
             """
             if (byte >> 7) == 0:
                 continue
-            elif (byte >> 5) == 110:
+            elif (byte >> 5) == 0b110:
                 result = 1
-            elif (byte >> 4) == 1110:
+            elif (byte >> 4) == 0b1110:
                 result = 2
-            elif (byte >> 3) == 11110:
+            elif (byte >> 3) == 0b11110:
                 result = 3
             else:
                 return False
         else:
             """if the first 2 bits are not 10 and its an invalid continuation
             byte. return False """
-            if (byte >> 6) != 10:
+            if (byte >> 6) != 0b10:
                 return False
             result -= 1
     return result == 0
