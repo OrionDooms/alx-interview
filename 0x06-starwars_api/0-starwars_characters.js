@@ -16,4 +16,5 @@ movieData.characters.forEach((characterUrl) => {
 		const characterData = JSON.parse(charBody);
 		console.log(characterData.name);
 	});
-});
+})
+;
