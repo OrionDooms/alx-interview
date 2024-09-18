@@ -1,20 +1,21 @@
 #!/usr/bin/node
-const request = require('request');
+/* Importing the request module allowing to make HTTP requests to the api */
+const result = require('request');
+/* Get the ID from command line arguments */
+const Id = process.argv[2];
+const Url = 'https://swapi-api.alx-tools.com/api/films/' + Id;
 
-const movieId = process.argv[2];
-
-const apiUrl = `https://swapi-api.alx-tools.com/api/films/{}/`.format(movieId);
-
-const movieData = JSON.parse(body);
-
-movieData.characters.forEach((characterUrl) => {
-	request(characterUrl, (charError, charResponse, charBody) => {
-		if (charError){
-			console.log("Error:", charError);
-			return;
-		}
-		const characterData = JSON.parse(charBody);
-		console.log(characterData.name);
-	});
-})
-;
+result(Url, (error, response, body) => {
+  if (error) {
+    console.log('Error:', error);
+    return;
+  }
+  /* The result accepts three arguments: error, response, body */
+  const movie = JSON.parse(body);
+  movie.characters.forEach((characterUrl) => {
+    result(characterUrl, (charError, charResponse, charBody) => {
+      const Data = JSON.parse(charBody);
+      console.log(Data.name);
+    });
+  });
+});
