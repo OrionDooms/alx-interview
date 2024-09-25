@@ -8,10 +8,9 @@ def reverse_Matrix(matrix):
 def rotate_2d_matrix(matrix):
     """Convert rows to columns by swapping the matrix[i][j] with matrix[j][i]"""
 
-    n = len(matrix)
-    if n <= 0:
+    if len(matrix) <= 0 or type(matrix) != str:
         return
-
+    n = len(matrix)
     for i in range(n):
         for j in range(i, n):
             """Swapping matrix[i][j] and [j][i] """
