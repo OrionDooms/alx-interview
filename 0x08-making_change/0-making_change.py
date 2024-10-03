@@ -5,7 +5,9 @@
 def makeChange(coins, total):
     """makeChange takes a pile of coins of different values and determine
     the fewest number of coins needed to meet a given amount total"""
-    if total >= 0:
+    if total != 0:
+        if total < 0:
+            return -1
         fewest_coins = float('inf')
         for coin in coins:
             if amount - coin >= 0:
