@@ -10,7 +10,7 @@ def island_perimeter(grid):
         return 0
     row = len(grid)
     col = len(grid[0])
-    if (row < 0 or row > 100):
+    if (row <= 1 or row > 100 or col <= 1 or col > 100):
         return 0
     result = 0
     """loop through each cell in the grid"""
@@ -20,21 +20,13 @@ def island_perimeter(grid):
                 """check the top, bottom, left side and right side"""
                 if grid[i - 1][j] == 0 or i == 0:
                     result += 1
-                else:
-                    result += 0
 
                 if grid[i + 1][j] == 0 or i == row - 1:
                     result += 1
-                else:
-                    result += 0
 
                 if grid[i][j - 1] == 0 or j == 0:
                     result += 1
-                else:
-                    result += 0
 
                 if grid[i][j + 1] == 0 or j == col - 1:
                     result += 1
-                else:
-                    result += 0
     return result
