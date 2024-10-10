@@ -10,6 +10,8 @@ def island_perimeter(grid):
         return 0
     row = len(grid)
     col = len(grid[0])
+    if (row < 0 or row > 100):
+        return 0
     result = 0
     """loop through each cell in the grid"""
     for i in range(row):
